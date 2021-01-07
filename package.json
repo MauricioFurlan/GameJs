@@ -7,12 +7,16 @@
     "lib": "lib"
   },
   "scripts": {
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "prepush": "npm run lint",
     "test": "jasmine"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^7.17.0",
+    "husky": "^4.3.7",
     "jasmine": "^3.6.3"
   },
   "dependencies": {
