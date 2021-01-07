@@ -1,6 +1,7 @@
 const {
     somar1,
     sub
+    // eslint-disable-next-line no-undef
     } = require('../src/suite.js');
 
 describe('Operação de adicição', () => {
