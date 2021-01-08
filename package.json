@@ -8,16 +8,24 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
+    "build": "./node_modules/.bin/webpack --progress",
+    "watch": "npm run build -- --watch",
     "prepush": "npm run lint",
-    "test": "jasmine"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2015-native-modules": "^6.9.4",
+    "babel-register": "^6.26.0",
     "eslint": "^7.17.0",
     "husky": "^4.3.7",
-    "jasmine": "^3.6.3"
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1"
   },
   "dependencies": {
     "@babel/cli": "^7.12.10",
