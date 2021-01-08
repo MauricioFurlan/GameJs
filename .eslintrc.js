@@ -1,14 +1,21 @@
 module.exports = {
     "env": {
         "browser": true,
+        "commonjs": true,
         "es2021": true,
-        "jasmine": true
+        "jasmine": true,
+        "es6": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "rules": {
-    }
+
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "jsx": true
+        }
+        },
+        "rules": {
+          "semi": "error"
+        }
 };

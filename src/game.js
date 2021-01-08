@@ -1,6 +1,9 @@
-function registerItem(a) {
-    return a;
+import './suite';
+
+function registerItem() {
+  return true;
 }
 
-// eslint-disable-next-line no-undef
-module.exports = registerItem;
+console.log("aew");
+
+export default registerItem;
