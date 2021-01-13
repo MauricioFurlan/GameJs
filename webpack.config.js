@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const path = require('path');
 // eslint-disable-next-line no-unused-vars
 module.exports = {
-  entry: './src/game.js',
+  entry: './public/game.js',
   context: path.resolve(__dirname),
   output: {
     path: path.resolve(__dirname, 'dist'),

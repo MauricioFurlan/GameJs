@@ -1,8 +1,9 @@
 export default function renderScreen(screen, game, requestAnimationFrame, currentPlayerId) {
   const context = screen.getContext('2d');
 
+
   context.fillStyle = 'white';
-  context.clearRect(0, 0, 10, 10);
+  context.clearRect(0, 0, screen.width, screen.height);
   for (const playerId in game.state.players) {
     const player = game.state.players[playerId];
     context.fillStyle = 'black';
@@ -14,10 +15,15 @@ export default function renderScreen(screen, game, requestAnimationFrame, curren
     context.fillRect(fruit.x, fruit.y, 1, 1);
   }
   const currentPlayer = game.state.players[currentPlayerId];
-  console.log('currentPlayer', currentPlayerId);
+
   if(currentPlayer) {
     context.fillStyle = '#F0DB4F';
     context.fillRect(currentPlayer.x, currentPlayer.y, 1, 1);
+  }
+  for (const teleportId in game.state.teleport) {
+        const teleport = game.state.teleport[teleportId];
+        context.fillStyle = 'red';
+        context.fillRect(teleport.x, teleport.y, 1, 1);
   }
   requestAnimationFrame(() => {
     renderScreen(screen, game, requestAnimationFrame, currentPlayerId);

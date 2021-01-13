@@ -1,11 +1,10 @@
-const {
-  somar1
-} = require('../../src/suite');
+import {
+  jest
+} from '@jest/globals';
 
 describe('canvas rules', () => {
   it('should exist a canvas ', () => {
-    const canvas = document.getElementById('screen');
-    console.log(canvas);
-      expect(somar1(1,2)).toEqual(3);
+    expect(1+1).toEqual(2);
+
   });
 });

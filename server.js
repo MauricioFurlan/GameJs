@@ -11,17 +11,14 @@ app.use(express.static('public'));
 
 
 const game = createGame();
-game.start();
+// game.start();
+
 game.subscribe((command) => {
   console.log('> Emitting', `${command.type}`);
   sockets.emit(command.type, command);
 });
+console.log('display:block;', game.state.screen.width)
 
-game.addPlayer({
-  playerId: 'player1'
-});
-game.movePlayer({playerId:'player1', keyPressed: 'ArrowRight'});
-console.log(game.state);
 
 sockets.on('connection', (socket) => {
   const playerId = socket.id;
@@ -29,7 +26,26 @@ sockets.on('connection', (socket) => {
   game.addPlayer({
     playerId: playerId
   });
-  console.log(game.state);
+  game.addTeleport({
+    teleportId: "t1",
+    teleportX: 0,
+    teleportY: 0
+  });
+  game.addTeleport({
+    teleportId: "t2",
+    teleportX: game.state.screen.width - 1,
+    teleportY: 0
+  });
+  game.addTeleport({
+    teleportId: "t3",
+    teleportX: game.state.screen.width - 1,
+    teleportY: game.state.screen.height - 1
+  });
+  game.addTeleport({
+    teleportId: "t4",
+    teleportX: 0,
+    teleportY: game.state.screen.height - 1
+  });
   socket.emit('setup', game.state);
 
   socket.on('disconnect', () => {
