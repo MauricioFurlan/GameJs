@@ -2,10 +2,11 @@
   "name": "uia",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "directories": {
     "lib": "lib"
   },
+  "type": "module",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
     "build": "./node_modules/.bin/webpack --progress",
@@ -24,10 +25,12 @@
     "babel-register": "^6.26.0",
     "eslint": "^7.17.0",
     "husky": "^4.3.7",
+    "express": "^4.17.1",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.1"
   },
   "dependencies": {
+    "socket.io": "^3.0.5",
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
